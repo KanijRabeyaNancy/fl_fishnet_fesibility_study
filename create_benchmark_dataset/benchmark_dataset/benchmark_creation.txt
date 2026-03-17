@@ -1,0 +1,28 @@
+FishNet Dataset -> Benchmark
+
+Steps:
+    1. All the pictures of FishNet are given habitat IDs with respect to their habitation.
+    
+    2. ⁠⁠For balancing the images in the individual orders, Select upto 1500 images from
+    each order. Select the top-20 Orders with the most images. (out of total 88 habitats)
+
+    3. Since multiple habitat IDs can exist for the same order.
+     That's why, I filtered with habitation and picked the top 10 habitat IDs, and discarded the rest that had fewer pictures.
+
+    
+    
+
+
+Resulted Benchmark Dataset:
+    1. Habitat count: 10    <- Perform federated splitting based on habitats
+    2. Order count: 20      <- Predict the class (Which order the image belongs to)
+    3. Total Images: 24716
+
+
+
+👉 Used 1500 images per order as a cap because:
+* It balances the dataset (prevents big orders from dominating).
+* 1500 is enough samples for training without making the dataset too large.
+* Gives~30,000 images (20 × 1500) → a practical size for deep learning.
+* 1000–2000 per class is a common research standard.
+So, 1500 = a practical trade-off between balance, dataset size, and training efficiency.
